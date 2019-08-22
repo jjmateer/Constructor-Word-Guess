@@ -12,8 +12,8 @@ Letter.prototype.printInfo = function () {
         this.check);
 };
 Letter.prototype.check = function () {
-    if (this.input === this.character) {
-        console.log('index answers: ' + this.input)
+    if (Index.userInput === this.character) {
+        console.log('index answers: ' + Index.guserInput)
         console.log('Correct')
         this.guessed = true;
         console.log(this.guessed)
@@ -24,9 +24,10 @@ Letter.prototype.check = function () {
 }
 Letter.prototype.returnLetter = function () {
     if (this.guessed === true) {
-        this.character = input
+        this.character = this.input
     } else {
         this.character = "_"
     }
 }
 module.exports = Letter
+    

@@ -10,7 +10,9 @@ inquirer.prompt([
     }
 ]).then(answers => {
     var userInput = answers.guess
-    module.exports.userInput = userInput
+    Letter.prototype.input = userInput
     console.log("user input: " + userInput)
-    // Letter.prototype.check(userInput); 
+    Word.prototype.splitWord()
+    Word.prototype.convertWord()
+    Letter.prototype.check(); 
 });

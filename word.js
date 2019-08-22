@@ -1,13 +1,13 @@
 var Letter = require('./letter');
-var Index = require('./index')
-const Word = function (underscore, letters) {
-    this.underscore = underscore;
-    this.letters = letters;
+const Word = function (convertWord, splitWord) {
+    this.convertWord = convertWord;
+    this.splitWord = splitWord;
 
 };
+
 var words = ['cat', 'ice', 'dog']
 var letterArray = []
-function splitWord() {
+Word.prototype.splitWord = function() {
     for (var i = 0; i < words.length; i++) {
         var newWord = words[i].split('');
         console.log("new word: " + newWord)
@@ -16,10 +16,10 @@ function splitWord() {
 // array1.forEach(function(element) {
 //     console.log(element);
 //   });
-function convertWord() {
+Word.prototype.convertWord = function() {
     for (var i = 0; i < words.length; i++) {
         for (var j = 0; j < words[i].length; j++) {
-            var letterObj = new Letter(Index.answers, words[i][j], false)
+            var letterObj = new Letter('input', words[i][j], false)
             letterArray.push(letterObj)
             console.log(letterObj)
         }
@@ -27,5 +27,4 @@ function convertWord() {
     // console.log('hi' + words[i][j])
     // console.log("letter array: " + (letterArray))
 }
-splitWord();
-convertWord();
+module.exports = Word

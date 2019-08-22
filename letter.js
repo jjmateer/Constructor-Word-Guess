@@ -1,10 +1,10 @@
-var Index = require('./index')
+
 const Letter = function (input, character, guessed, check, placeholder) {
-    this.input = Index.answers
+    this.input = input
     this.character = character
     this.guessed = guessed
     this.check = check
-    this.placeholder = placeholder
+    this.placeholder = "_"
 };
 Letter.prototype.printInfo = function () {
     console.log("\ninput: " + this.input +
@@ -12,8 +12,8 @@ Letter.prototype.printInfo = function () {
         this.check);
 };
 Letter.prototype.check = function () {
-    if (Index.userInput === this.character) {
-        console.log('index answers: ' + Index.guserInput)
+    if (this.input === this.character) {
+        // console.log('index answers: ' + Index.guserInput)
         console.log('Correct')
         this.guessed = true;
         console.log(this.guessed)

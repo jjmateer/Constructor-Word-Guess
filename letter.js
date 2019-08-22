@@ -1,28 +1,29 @@
-const Letter = function (input, character, guessed, check) {
+const Letter = function (input, character, guessed, check, placeholder) {
     this.input = input
     this.character = character
     this.guessed = guessed
     this.check = check
+    this.placeholder = placeholder
 };
 Letter.prototype.printInfo = function () {
     console.log("\ninput: " + this.input +
         "\ncharacter: " + this.character + "\nguessed: " + this.guessed + "\ncheck" +
         this.check);
 };
-this.check = function () {
-    if (input === character) {
+Letter.prototype.check = function () {
+    if (this.input === this.character) {
         console.log('Correct')
-        guessed = true
+        guessed = true;
     } else {
         console.log("Incorrect")
-        guessed = false
+        guessed = false;
     }
 }
-function returnLetter() {
-    if (guessed === true) {
-        placeholder = character
+Letter.prototype.returnLetter = function () {
+    if (this.guessed === true) {
+        this.character = input
     } else {
-        placeholder = "_"
+        this.character = "_"
     }
 }
 module.exports = Letter

@@ -4,7 +4,7 @@ const Word = function (underscore, letters) {
     this.underscore = underscore;
     this.letters = letters;
 
-}; 
+};
 var input = process.argv[2]
 var words = ['cat', 'ice', 'dog']
 var letterArray = []
@@ -19,11 +19,13 @@ function splitWord() {
 //   });
 function convertWord() {
     for (var i = 0; i < words.length; i++) {
-        var letterObj = new Letter(input, words[0][i], false)
-        letterArray.push(letterObj)
-        console.log(letterObj)
+        for (var j = 0; j < words[i].length; j++) {
+            var letterObj = new Letter(input, words[i][j], false)
+            letterArray.push(letterObj)
+            console.log(letterObj)
+        }
     }
-    console.log("letter array: " + letterArray)
+    console.log("letter array: " + (letterArray))
 }
 splitWord();
 convertWord();

@@ -1,7 +1,5 @@
 const inquirer = require("inquirer");
 const Word = require('./word');
-const Letter = require('./letter')
-
 inquirer.prompt([
     {
         type: 'input',
@@ -10,9 +8,21 @@ inquirer.prompt([
     }
 ]).then(answers => {
     var userInput = answers.guess
-    Letter.prototype.input = userInput
+    // Letter.prototype.input = userInput
     console.log("user input: " + userInput)
-    Word.prototype.splitWord()
-    Word.prototype.convertWord()
-    Letter.prototype.check(); 
+    Word.prototype.randomWord()
 });
+// function randomWord() {
+
+//     var random = Math.floor(Math.random() * 3) + 1;
+//     if(random === 1){
+//         console.log(words[0])
+//     }
+//     if(random === 2){
+//         console.log(words[1])
+//     }
+//     if(random === 3){
+//         console.log(words[2])
+//     }
+// }
+// randomWord()

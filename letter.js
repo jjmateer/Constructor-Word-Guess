@@ -11,22 +11,28 @@ Letter.prototype.printInfo = function () {
         "\ncharacter: " + this.character + "\nguessed: " + this.guessed + "\ncheck" +
         this.check);
 };
+// Letter.prototype.input = function() {
+
+// }
 Letter.prototype.check = function () {
     if (this.input === this.character) {
         // console.log('index answers: ' + Index.guserInput)
         console.log('Correct')
         this.guessed = true;
         console.log(this.guessed)
+        Letter.prototype.returnLetter();
     } else {
         console.log("Incorrect")
         guessed = false;
+        Letter.prototype.returnLetter();
     }
+
 }
 Letter.prototype.returnLetter = function () {
     if (this.guessed === true) {
-        this.character = this.input
+        console.log(this.character)
     } else {
-        this.character = "_"
+        console.log(this.placeholder)
     }
 }
 module.exports = Letter

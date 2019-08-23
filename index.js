@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const Word = require('./word');
+var count = 0;
 inquirer.prompt([
     {
         type: 'input',
@@ -9,4 +10,5 @@ inquirer.prompt([
 ]).then(answers => {
     Word.prototype.input = answers.guess
     Word.prototype.randomWord()
-});
+})
+

@@ -1,32 +1,34 @@
 var Letter = require('./letter');
-const Word = function (convertWord, splitWord, words) {
+var Index = require('./index')
+const Word = function (convertWord, splitWord, words, loopChars) {
     this.convertWord = convertWord;
     this.splitWord = splitWord;
-    this.words = words
+    this.words = words;
+    this.loopChars = loopChars;
 
 };
 
 var currentWord = [];
 var words = ['cat', 'ice', 'dog']
 var letterArray = []
-Word.prototype.randomWord = function() {
+Word.prototype.randomWord = function () {
 
     var random = Math.floor(Math.random() * 3) + 1;
-    if(random === 1){
+    if (random === 1) {
         currentWord.push(words[0])
         console.log(currentWord)
     }
-    if(random === 2){
+    if (random === 2) {
         currentWord.push(words[1])
         console.log(currentWord)
     }
-    if(random === 3){
+    if (random === 3) {
         currentWord.push(words[2])
         console.log(currentWord)
     }
-    Word.prototype.splitWord() 
+    Word.prototype.splitWord()
 }
-Word.prototype.splitWord = function() {
+Word.prototype.splitWord = function () {
     for (var i = 0; i < currentWord.length; i++) {
         var newWord = currentWord[i].split('');
         console.log("new word: " + newWord)
@@ -36,16 +38,22 @@ Word.prototype.splitWord = function() {
 // array1.forEach(function(element) {
 //     console.log(element);
 //   });
-Word.prototype.convertWord = function() {
+Word.prototype.convertWord = function () {
     for (var i = 0; i < currentWord.length; i++) {
         for (var j = 0; j < currentWord[i].length; j++) {
-            var letterObj = new Letter('input', currentWord[i][j], false)
+            var letterObj = new Letter(Index.userInput, currentWord[i][j], false)
             letterArray.push(letterObj)
             console.log(letterObj)
         }
+        console.log("Letter array: " + letterArray)
     }
     // console.log('hi' + words[i][j])
     // console.log("letter array: " + (letterArray))
 
+}
+Word.prototype.loopChars = function () {
+    for (var i = 0; i < letterArray.length; i++) {
+        Letter.prototype.check()
+    }
 }
 module.exports = Word

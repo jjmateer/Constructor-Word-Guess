@@ -30,9 +30,9 @@ Letter.prototype.check = function () {
 }
 Letter.prototype.returnLetter = function () {
     if (this.guessed === true) {
-        console.log(this.character)
+        console.log('character')
     } else {
-        console.log(this.placeholder)
+        console.log('placeholder')
     }
 }
 module.exports = Letter

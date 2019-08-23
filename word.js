@@ -1,11 +1,12 @@
 var Letter = require('./letter');
 var Index = require('./index')
-const Word = function (convertWord, splitWord, words, loopChars) {
+// console.log(Index.userInput)
+const Word = function (convertWord, splitWord, words, loopChars, input) {
     this.convertWord = convertWord;
     this.splitWord = splitWord;
     this.words = words;
     this.loopChars = loopChars;
-
+    this.input = input
 };
 
 var currentWord = [];
@@ -41,15 +42,15 @@ Word.prototype.splitWord = function () {
 Word.prototype.convertWord = function () {
     for (var i = 0; i < currentWord.length; i++) {
         for (var j = 0; j < currentWord[i].length; j++) {
-            var letterObj = new Letter(Index.userInput, currentWord[i][j], false)
+            var letterObj = new Letter(this.input, currentWord[i][j], false)
             letterArray.push(letterObj)
             console.log(letterObj)
         }
-        console.log("Letter array: " + letterArray)
+        console.log("Letter array: " + (JSON.stringify(letterArray)))
     }
     // console.log('hi' + words[i][j])
     // console.log("letter array: " + (letterArray))
-
+    Word.prototype.loopChars()
 }
 Word.prototype.loopChars = function () {
     for (var i = 0; i < letterArray.length; i++) {

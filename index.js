@@ -8,8 +8,9 @@ inquirer.prompt([
         message: "Guess a letter: "
     }
 ]).then(answers => {
-    userInput = answers.guess
+    // userInput = answers.guess
+    Word.prototype.input = answers.guess
     // Letter.prototype.input = userInput
-    console.log("user input: " + userInput)
+    // console.log("user input: " + userInput)
     Word.prototype.randomWord()
 });

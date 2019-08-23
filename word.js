@@ -1,5 +1,4 @@
 var Letter = require('./letter');
-var Index = require('./index')
 // console.log(Index.userInput)
 const Word = function (convertWord, splitWord, words, loopChars, input) {
     this.convertWord = convertWord;
@@ -8,12 +7,10 @@ const Word = function (convertWord, splitWord, words, loopChars, input) {
     this.loopChars = loopChars;
     this.input = input
 };
-
 var currentWord = [];
 var words = ['cat', 'ice', 'dog']
 var letterArray = []
 Word.prototype.randomWord = function () {
-
     var random = Math.floor(Math.random() * 3) + 1;
     if (random === 1) {
         currentWord.push(words[0])
@@ -48,13 +45,16 @@ Word.prototype.convertWord = function () {
         }
         console.log("Letter array: " + (JSON.stringify(letterArray)))
     }
-    // console.log('hi' + words[i][j])
-    // console.log("letter array: " + (letterArray))
     Word.prototype.loopChars()
 }
 Word.prototype.loopChars = function () {
     for (var i = 0; i < letterArray.length; i++) {
+        Letter.prototype.input = letterArray[i].input
+        Letter.prototype.character = letterArray[i].character
+        // console.log("Letter " + JSON.stringify(letterArray[i].input))
+        // console.log("char " + JSON.stringify(letterArray[i].character))
         Letter.prototype.check()
+        // console.log("letter input: " + letterArray[i].input)
     }
 }
 module.exports = Word

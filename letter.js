@@ -14,17 +14,22 @@ Letter.prototype.printInfo = function () {
 // Letter.prototype.input = function() {
 
 // }
+
 Letter.prototype.check = function () {
+    // console.log('hi ' + JSON.stringify(this.character))
     if (this.input === this.character) {
-        // console.log('index answers: ' + Index.guserInput)
+        console.log(this.character)
         console.log('Correct')
         this.guessed = true;
-        console.log(this.guessed)
+        console.log("guessed: " + this.guessed)
         Letter.prototype.returnLetter();
-    } else {
+    } else if(this.input !== this.character) {
+        console.log(this.character)
         console.log("Incorrect")
-        guessed = false;
+        this.guessed = false;
+        console.log("guessed: " + this.guessed)
         Letter.prototype.returnLetter();
+        console.log()
     }
 
 }

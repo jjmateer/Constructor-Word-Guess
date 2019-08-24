@@ -1,14 +1,16 @@
 var Letter = require('./letter');
-const Word = function (convertWord, splitWord, words, loopChars, input) {
+const Word = function (convertWord, splitWord, words, loopChars, input, answerLogWord) {
     this.convertWord = convertWord;
     this.splitWord = splitWord;
     this.words = words;
     this.loopChars = loopChars;
     this.input = input
+    this.answerLogWord = answerLogWord
 };
 var currentWord = [];
 var words = ['television', 'computer', 'automobile']
 var letterArray = []
+
 Word.prototype.randomWord = function () {
         var random = Math.floor(Math.random() * 3) + 1;
         if (random === 1) {
@@ -26,7 +28,6 @@ Word.prototype.randomWord = function () {
         if(currentWord.length > 1) {
             currentWord.shift();
         }
-        Word.prototype.splitWord()
     }
 
 Word.prototype.splitWord = function () {
@@ -51,6 +52,8 @@ Word.prototype.loopChars = function () {
     for (var i = 0; i < letterArray.length; i++) {
         Letter.prototype.input = letterArray[i].input
         Letter.prototype.character = letterArray[i].character
+        Letter.prototype.answerLogLetter = this.answerLogWord
+        // console.log(this.answerLogWord)
         // console.log("Letter " + JSON.stringify(letterArray[i].input))
         // console.log("char " + JSON.stringify(letterArray[i].character))
         Letter.prototype.check()

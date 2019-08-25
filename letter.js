@@ -1,32 +1,29 @@
 
-const Letter = function (input, character, guessed, check, placeholder, answerLogLetter) {
+const Letter = function (input, character, guessed, check, placeholder) {
     this.input = input
     this.character = character
     this.guessed = guessed
     this.check = check
     this.placeholder = placeholder
-    this.answerLogLetter = answerLogLetter
 };
-Letter.prototype.placeholder = "_"
 
-var checkArray = [];
-var checkArray2 = [];
 Letter.prototype.check = function () {
+    console.log(this.character)
     if (this.input === this.character) {
-        // console.log(this.character)
-        // console.log('Correct')
         this.guessed = true;
         // console.log("guessed: " + this.guessed)
-
-    }else if (this.input !== this.character) {
-        // console.log(this.character)
-        // console.log("Incorrect")
-        this.guessed = false;
-
-        // console.log("guessed: " + this.guessed)
-
+    } else if(this.input === this.character){
+        this.guessed = false
     }
-    // Letter.prototype.returnLetter();
+    guess();
+}
+
+function guess() {
+    if(this.guessed === true) {
+        this.placeholder = this.character
+    } else {
+        this.placeholder = "_"
+    }
 }
 
 // Letter.prototype.returnLetter = function () {

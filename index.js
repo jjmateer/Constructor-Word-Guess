@@ -1,14 +1,15 @@
 const inquirer = require("inquirer");
 const Word = require('./word');
+var Letter = require('./letter');
 var count = 0;
 var answerLog = [];
-var words = ['television', 'computer', 'automobile']
+var words = ['bejumbling', 'complexify', 'maximizers', 'whizzbangs', 'blizzardly', 'puzzlement']
 if (count === 0) {
     randomWord();
     startApp();
 }
 function randomWord() {
-    var random = Math.floor(Math.random() * 3) + 1;
+    var random = Math.floor(Math.random() * 6) + 1;
     if (random === 1) {
         Word.prototype.currentWord.push(words[0])
     }
@@ -18,12 +19,22 @@ function randomWord() {
     if (random === 3) {
         Word.prototype.currentWord.push(words[2])
     }
+    if (random === 4) {
+        Word.prototype.currentWord.push(words[3])
+    }
+    if (random === 5) {
+        Word.prototype.currentWord.push(words[4])
+    }
+    if (random === 6) {
+        Word.prototype.currentWord.push(words[5])
+    }
     if (Word.prototype.currentWord.length > 1) {
         Word.prototype.currentWord.shift();
     }
 }
 function startApp() {
     count++
+    
     inquirer.prompt([
         {
             type: 'input',
@@ -40,13 +51,14 @@ function startApp() {
             startApp();
         }
         if (count === 10) {
+            console.log('NEXT WORD')
             randomWord();
             Word.prototype.clearLog();
             count = 0
         }
     }).then(func => {
-        if (count === 10){
+        if (count === 10) {
             startApp();
-    }
+        }
     })
 }

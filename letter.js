@@ -9,9 +9,11 @@ Letter.prototype.placeholder = "_"
 
 Letter.prototype.check = function () {
     if (this.input === this.character) {
+        console.log('CORRECT')
         this.guessed = true;
     } else {
         this.guessed = false;
+        // console.log('INCORRECT')
     }
 
 }

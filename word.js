@@ -1,5 +1,6 @@
 var Letter = require('./letter');
-const Word = function (convertWord, words, input, clearLog) {
+const Word = function (currentWord, convertWord, words, input, clearLog) {
+    this.currentWord = currentWord
     this.convertWord = convertWord;
     this.splitWord = splitWord;
     this.words = words;

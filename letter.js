@@ -1,30 +1,45 @@
-
-const Letter = function (input, character, guessed, check, placeholder) {
+// var Word = require('./word');
+const Letter = function (input, character, guessed, check, placeholder, guess) {
     this.input = input
     this.character = character
     this.guessed = guessed
     this.check = check
     this.placeholder = placeholder
+    this.guess = guess
 };
-
+Letter.prototype.placeholder = "_"
+// var finalWord = [];
 Letter.prototype.check = function () {
-    console.log(this.character)
     if (this.input === this.character) {
         this.guessed = true;
         // console.log("guessed: " + this.guessed)
-    } else if(this.input === this.character){
-        this.guessed = false
+    } else {
+        this.guessed = false;
+        // console.log("guessed: " + this.guessed)
     }
-    guess();
+    // Letter.prototype.guess()
+    // returnWord();
 }
 
-function guess() {
-    if(this.guessed === true) {
-        this.placeholder = this.character
-    } else {
-        this.placeholder = "_"
-    }
+
+function returnWord() {
+
 }
+
+
+
+
+// Letter.prototype.guess = function () {
+
+//     if (this.guessed === true) {
+
+//     } else {
+
+//     }
+// if (this.guessed === false) {
+//     finalWord.push(this.placeholder)
+// }
+// console.log(finalWord)
 
 // Letter.prototype.returnLetter = function () {
 //     if (this.guessed === true) {

@@ -3,7 +3,7 @@ const Word = require('./word');
 var count = 0;
 var answerLog = [];
 var words = ['television', 'computer', 'automobile']
-if(count === 0) {
+if (count === 0) {
     randomWord();
     startApp();
 }
@@ -39,9 +39,14 @@ function startApp() {
         if (count < 10) {
             startApp();
         }
-        if(count > 10) {
+        if (count === 10) {
+            randomWord();
+            Word.prototype.clearLog();
             count = 0
-            console.log(count)
         }
+    }).then(func => {
+        if (count === 10){
+            startApp();
+    }
     })
 }

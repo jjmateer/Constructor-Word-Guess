@@ -1,18 +1,24 @@
 var Letter = require('./letter');
-const Word = function (currentWord, convertWord, words, input, clearLog) {
+const Word = function (currentWord, convertWord, words, input, clearLog, isComplete, isCompletefunc) {
     this.currentWord = currentWord
     this.convertWord = convertWord;
     this.splitWord = splitWord;
     this.words = words;
     this.input = input;
     this.clearLog = clearLog;
+    this.isComplete = isComplete
+    this.isCompletefunc = isCompletefunc
 };
+var compareArr = [];
 var currentWord = [];
 var letterArray = []
 var letArr2 = [];
 var correctLog = [];
+var complete = 0;
+var finalCheck1 = [];
+var finalCheck2 = [];
 Word.prototype.currentWord = currentWord;
-
+Word.prototype.isComplete = false;
 Word.prototype.convertWord = function () {
     for (var i = 0; i < currentWord.length; i++) {
         for (var j = 0; j < currentWord[i].length; j++) {
@@ -33,6 +39,7 @@ Word.prototype.convertWord = function () {
         }
     }
     returnLetters();
+    Word.prototype.isCompletefunc()
     emptyLetter();
 }
 function returnLetters() {
@@ -43,12 +50,73 @@ function returnLetters() {
     }
 }
 function emptyLetter() {
-    console.log(letArr2)
+    for (var i = 0; i < currentWord.length; i++) {
+        // console.log(currentWord[i])
+        compareArr = currentWord[i].split('')
+
+    }
+    // console.log(compareArr)
+    // console.log(letArr2)
     letterArray = [];
     letArr2 = [];
 }
+
 Word.prototype.clearLog = function () {
     correctLog = [];
 }
+Word.prototype.isCompletefunc = function () {
+    // console.log(letArr2)
+    for (var i = 0; i < compareArr.length; i++) {
+        // console.log(Letter.prototype.character)
+        var check1 = compareArr[i]
+        var check2 = letArr2[i]
+        finalCheck1.push(check1)
+        finalCheck2.push(check2)
+    }
+    finalCheck()
+    // console.log(letArr2.length)
+    // console.log(complete)
+    // if(complete !== 0 &&complete === letArr2.length) {
+    //     Word.prototype.isComplete === true
+    // } else {
+    //     Word.prototype.isComplete === false
+    // }
+    // console.log(Word.prototype.isComplete)
+}
+function finalCheck() {
 
+    for (var i = 0; i < finalCheck2.length; i++) {
+        if (finalCheck2[i] === finalCheck1[i]) {
+            complete++
+            if (complete === letArr2.length) {
+                    console.log(complete)
+                console.log(Word.prototype.isComplete)
+                Word.prototype.isComplete = true
+            }
+                    console.log(Word.prototype.isComplete)
+            // console.log(complete)
+            // Word.prototype.isComplete === true
+        } else {
+            // Word.prototype.isComplete === false
+            console.log(false)
+        }
+        // console.log(Letter.prototype.placeholder)
+        console.log(finalCheck1)
+        console.log(finalCheck2)
+
+    }
+    // console.log(letArr2.length)
+    // if (complete === letArr2.length) {
+    //     console.log(Word.prototype.isComplete)
+    //         Word.prototype.isComplete === true
+    // }
+    // if(complete === letArr2.length) {
+    //     Word.prototype.isComplete === true
+    // }
+    // console.log(complete)
+    finalCheck1 = []
+    finalCheck2 = []
+
+
+}
 module.exports = Word

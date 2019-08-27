@@ -13,7 +13,6 @@ Letter.prototype.check = function () {
         this.guessed = true;
     } else {
         this.guessed = false;
-        // console.log('INCORRECT')
     }
 
 }

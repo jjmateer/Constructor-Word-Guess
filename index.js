@@ -3,6 +3,7 @@ const Word = require('./word');
 var count = 0;
 var answerLog = [];
 var words = ['bejumbling', 'complexify', 'maximizers', 'whizzbangs', 'blizzardly', 'puzzlement']
+// var words = ['cat']
 if (count === 0) {
     randomWord();
     startApp();
@@ -54,6 +55,7 @@ function startApp() {
             randomWord();
             Word.prototype.clearLog();
             count = 0
+            Word.prototype.isComplete = false
         }
     }).then(func => {
         if (count === 12) {

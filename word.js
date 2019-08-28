@@ -1,5 +1,5 @@
 var Letter = require('./letter');
-const Word = function (currentWord, convertWord, words, input, clearLog, isComplete, isCompletefunc) {
+const Word = function (currentWord, convertWord, words, input, clearLog, isComplete) {
     this.currentWord = currentWord
     this.convertWord = convertWord;
     this.splitWord = splitWord;
@@ -7,7 +7,6 @@ const Word = function (currentWord, convertWord, words, input, clearLog, isCompl
     this.input = input;
     this.clearLog = clearLog;
     this.isComplete = isComplete
-    this.isCompletefunc = isCompletefunc
 };
 var compareArr = [];
 var currentWord = [];
@@ -39,7 +38,7 @@ Word.prototype.convertWord = function () {
         }
     }
     returnLetters();
-    Word.prototype.isCompletefunc()
+    isCompletefunc();
     emptyLetter();
 }
 function returnLetters() {
@@ -52,36 +51,29 @@ function returnLetters() {
 function emptyLetter() {
     for (var i = 0; i < currentWord.length; i++) {
         compareArr = currentWord[i].split('')
-
     }
-
     letterArray = [];
     letArr2 = [];
 }
-
 Word.prototype.clearLog = function () {
     correctLog = [];
 }
-Word.prototype.isCompletefunc = function () {
-    console.log(letArr2)
+function isCompletefunc() {
     for (var i = 0; i < compareArr.length; i++) {
-        var check1 = compareArr[i]
-        var check2 = letArr2[i]
-        finalCheck1.push(check1)
-        finalCheck2.push(check2)
+        finalCheck1.push(compareArr[i])
+        finalCheck2.push(letArr2[i])
     }
     finalCheck()
 }
 function finalCheck() {
+    console.log(letArr2)
     for (var i = 0; i < finalCheck2.length; i++) {
         if (finalCheck2[i] === finalCheck1[i]) {
             complete++
-            // console.log(complete)
         }
     }
     if (complete === finalCheck1.length && complete > 0) {
         Word.prototype.isComplete = true
-        // console.log(Word.prototype.isComplete)
     }
     finalCheck1 = []
     finalCheck2 = []

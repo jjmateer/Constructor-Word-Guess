@@ -1,6 +1,6 @@
 
 
-This game is a Word guess game created using JS constructors & inquirer. It runs in the command-line and displays:
+This is a Word guess game created using JS constructors & inquirer. It runs in the command-line and displays:
 
 -An array of letters or placeholders, depending on if the user has guessed the letter, the user's correct guesses, and remaining guesses.
 

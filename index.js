@@ -35,7 +35,9 @@ function randomWord() {
 function startApp() {
     count++
     guessesLeft--
-    console.log('Guesses left: ' + guessesLeft)
+    console.log('-------------')
+    console.log('--Guesses left: ' + guessesLeft)
+    console.log('-------------')
     inquirer.prompt([
         {
             type: 'input',
@@ -48,18 +50,16 @@ function startApp() {
         answerLog.push(answers.guess)
         Word.prototype.answerLogWord = answerLog
     }).then(func => {
-        if (count === 12 || Word.prototype.isComplete === true) {
+        if (count === 13 || Word.prototype.isComplete === true) {
             if (count === 12) {
                 console.log('=============')
-                console.log('OUT OF TRIES')
-                console.log('=============')
+                console.log('--OUT OF TRIES')
             } else if (Word.prototype.isComplete === true) {
                 console.log('=============')
-                console.log('WORD COMPLETE')
-                console.log('=============')
+                console.log('--WORD COMPLETE')
             }
-            console.log('NEXT WORD')
-            console.log('-------------')
+            console.log('=============')
+            console.log('--NEXT WORD')
             randomWord();
             Word.prototype.clearLog();
             guessesLeft = 13;
@@ -67,7 +67,7 @@ function startApp() {
             Word.prototype.isComplete = false
         }
     }).then(func => {
-        if (count === 12 || Word.prototype.isComplete === true || count < 12) {
+        if (count === 13 || Word.prototype.isComplete === true || count < 13) {
             startApp();
         }
     })

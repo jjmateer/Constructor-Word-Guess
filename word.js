@@ -66,6 +66,15 @@ function isCompletefunc() {
     finalCheck()
 }
 function finalCheck() {
+    console.log('             ')
+    console.log('             ')
+    console.log('             ')
+    console.log('             ')
+    console.log('             ')
+    console.log('             ')
+    console.log('             ')
+    console.log('             ')
+    console.log('             ')
     console.log(letArr2)
     for (var i = 0; i < finalCheck2.length; i++) {
         if (finalCheck2[i] === finalCheck1[i]) {
@@ -73,7 +82,8 @@ function finalCheck() {
         }
     }
     if (complete > 0) {
-        console.log('Correct: ' + complete + '/' + letArr2.length)
+        console.log('-------------')
+        console.log('--Correct: ' + complete + '/' + letArr2.length)
     }
     if (complete === finalCheck1.length && complete > 0) {
         Word.prototype.isComplete = true

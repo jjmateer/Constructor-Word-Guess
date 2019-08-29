@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const Word = require('./word');
 var count = 0;
+var guessesLeft = 13;
 var answerLog = [];
 var words = ['bejumbling', 'complexify', 'maximizers', 'whizzbangs', 'blizzardly', 'puzzlement']
 if (count === 0) {
@@ -33,6 +34,8 @@ function randomWord() {
 }
 function startApp() {
     count++
+    guessesLeft--
+    console.log('Guesses left: ' + guessesLeft)
     inquirer.prompt([
         {
             type: 'input',
@@ -45,23 +48,26 @@ function startApp() {
         answerLog.push(answers.guess)
         Word.prototype.answerLogWord = answerLog
     }).then(func => {
-        if (count < 12) {
-            startApp();
-        }
         if (count === 12 || Word.prototype.isComplete === true) {
             if (count === 12) {
+                console.log('=============')
                 console.log('OUT OF TRIES')
+                console.log('=============')
             } else if (Word.prototype.isComplete === true) {
+                console.log('=============')
                 console.log('WORD COMPLETE')
+                console.log('=============')
             }
             console.log('NEXT WORD')
+            console.log('-------------')
             randomWord();
             Word.prototype.clearLog();
+            guessesLeft = 13;
             count = 0
             Word.prototype.isComplete = false
         }
     }).then(func => {
-        if (count === 12 || Word.prototype.isComplete === true) {
+        if (count === 12 || Word.prototype.isComplete === true || count < 12) {
             startApp();
         }
     })

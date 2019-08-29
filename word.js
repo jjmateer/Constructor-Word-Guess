@@ -72,6 +72,7 @@ function finalCheck() {
             complete++
         }
     }
+    console.log('Correct: ' + complete + '/' + letArr2.length)
     if (complete === finalCheck1.length && complete > 0) {
         Word.prototype.isComplete = true
     }

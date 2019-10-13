@@ -1,4 +1,4 @@
-
+# Constructor Word Guess
 
 This is a Word guess game created using JS constructors & inquirer. It runs in the command-line and displays:
 

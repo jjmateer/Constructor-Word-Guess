@@ -9,4 +9,9 @@ A word is selected randomly from a list of 6 words and prompts the user to guess
 The words are 10 letters long.
 
 
+# To run this app:
 
+1. Download files.
+2. Open command line and navigate to the folder you downloaded.
+3. Run "npm install inquirer".
+4. Use "node index.js" to start the app.

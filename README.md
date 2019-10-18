@@ -15,3 +15,5 @@ The words are 10 letters long.
 2. Open command line and navigate to the folder you downloaded.
 3. Run "npm install inquirer".
 4. Use "node index.js" to start the app.
+
+![constructorWordGuess](https://user-images.githubusercontent.com/50982277/67127018-4de4fe80-f1ad-11e9-8c16-c2cb28e4f462.png)
